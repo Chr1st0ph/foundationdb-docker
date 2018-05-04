@@ -8,6 +8,8 @@ RUN wget https://www.foundationdb.org/downloads/5.1.7/ubuntu/installers/foundati
 RUN sudo dpkg -i foundationdb-clients_5.1.7-1_amd64.deb \
 	foundationdb-server_5.1.7-1_amd64.deb
 
+RUN sudo apt-get  --purge remove -y wget
+
 COPY foundationdb.conf /etc/foundationdb/foundationdb.conf
 
 CMD service foundationdb start && tail -f /var/log/foundationdb/trace*
