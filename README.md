@@ -4,7 +4,7 @@ Docker image for running [https://www.foundationdb.org](https://www.foundationdb
 
 ##### Run:
 
-* docker run chr1st0ph/foundationdb
+* docker run -it chr1st0ph/foundationdb
 
 ##### How to connect using fdbcli:
 
