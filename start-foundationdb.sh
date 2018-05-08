@@ -7,7 +7,9 @@ if [ $FDB_COORDINATORS_FQDN ]; then
 	for fqdn in "${fqdn_array[@]}"
 	do
 		ip_for_fqdn=`getent hosts $fqdn | awk '{ print $1}'`
-		ips_str+=",$ip_for_fqdn:4500"
+		if [ $ip_for_fqdn ]; then
+			ips_str+=",$ip_for_fqdn:4500"
+		fi
 	done
 
 	echo $(cat /etc/foundationdb/fdb.cluster)$ips_str > /etc/foundationdb/fdb.cluster
