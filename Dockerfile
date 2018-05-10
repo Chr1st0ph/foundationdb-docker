@@ -19,7 +19,6 @@ RUN sudo dpkg -i \
 
 RUN sudo apt-get --purge remove -y wget
 
-COPY foundationdb.conf /etc/foundationdb/foundationdb.conf
 COPY start-foundationdb.sh /usr/bin/start-foundationdb.sh
 
 RUN sudo chmod 755 /usr/bin/start-foundationdb.sh
