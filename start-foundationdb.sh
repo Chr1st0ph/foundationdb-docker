@@ -29,4 +29,11 @@ if [ $FDB_COORDINATORS_FQDN ] && [ ! -f /etc/foundationdb/configured ]; then
 	touch /etc/foundationdb/configured
 fi
 
+if [ $FDB_DATACENTER_ID ]; then
+	sed -i "s/# datacenter_id =.*/datacenter_id = $FDB_DATACENTER_ID/" /etc/foundationdb/foundationdb.conf
+fi
+if [ $FDB_MACHINE_ID ]; then
+	sed -i "s/# machine_id =.*/machine_id = $FDB_MACHINE_ID/" /etc/foundationdb/foundationdb.conf
+fi
+
 /usr/lib/foundationdb/fdbmonitor
