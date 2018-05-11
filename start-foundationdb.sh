@@ -1,7 +1,5 @@
 #!/bin/bash
 
-sed -i '/. \/lib\/lsb\/init-functions/s/^#//g' /etc/init.d/foundationdb
-
 if [ $FDB_COORDINATORS_FQDN ] && [ ! -f /etc/foundationdb/configured ]; then
 	IFS=', ' read -r -a fqdn_array <<< $FDB_COORDINATORS_FQDN
 
